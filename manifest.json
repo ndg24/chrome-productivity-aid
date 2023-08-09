@@ -1,0 +1,53 @@
+{
+    "manifest_version": 2,
+    "name": "Study Blocker",
+    "version": "1.0",
+    "description": "Block YouTube while studying",
+    "permissions": [
+      "storage",
+      "activeTab",
+      "notifications"
+    ],
+    "commands": {
+      "toggle-study-mode": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+S",
+          "mac": "Command+Shift+S"
+        },
+        "description": "Toggle Study Mode"
+      }
+    },
+    "options_ui": {
+      "page": "options.html",
+      "chrome_style": true
+    },
+    "browser_action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+      }
+    },
+    "icons": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "web_accessible_resources": [
+      {
+        "resources": ["images/*"],
+        "matches": ["<all_urls>"]
+      }
+    ]
+  }
