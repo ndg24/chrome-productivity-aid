@@ -45,9 +45,6 @@
       "persistent": false
     },
     "web_accessible_resources": [
-      {
-        "resources": ["images/*"],
-        "matches": ["<all_urls>"]
-      }
+      "images/*"
     ]
   }

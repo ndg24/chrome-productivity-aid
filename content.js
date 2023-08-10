@@ -1,19 +1,19 @@
-let studyModeActive = false;
-let whitelistedSites = [];
-
-chrome.storage.sync.get(['studyMode', 'whitelistedSites'], (data) => {
+chrome.storage.sync.get(['studyMode'], (data) => {
   studyModeActive = data.studyMode || false;
-  whitelistedSites = data.whitelistedSites || [];
 
-  if (studyModeActive && window.location.host.includes('youtube.com') && !isWhitelistedSite()) {
+  if (studyModeActive) {
     observeAndBlock();
   }
 });
 
-function isWhitelistedSite() {
-  const currentSite = window.location.host;
-  return whitelistedSites.includes(currentSite);
-}
+chrome.storage.onChanged.addListener((changes, namespace) => {
+  if ('studyMode' in changes) {
+    studyModeActive = changes.studyMode.newValue;
+    if (studyModeActive) {
+      observeAndBlock();
+    }
+  }
+});
 
 function observeAndBlock() {
   const observer = new MutationObserver((mutations) => {
@@ -31,8 +31,10 @@ function observeAndBlock() {
 }
 
 function blockYouTubeContent() {
-  const videoElements = document.querySelectorAll('video');
-  videoElements.forEach((video) => {
-    video.pause();
-  });
+  if (studyModeActive && window.location.host.includes('youtube.com')) {
+    const videoElements = document.querySelectorAll('video');
+    videoElements.forEach((video) => {
+      video.pause();
+    });
+  }
 }

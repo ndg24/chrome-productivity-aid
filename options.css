@@ -1,0 +1,89 @@
+body {
+  font-family: 'Courier New', monospace;
+  background-color: #ffffff; /* Light Blue */
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #b0e0e6;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.circular-rectangle {
+  padding: 5px; /* Decreased padding */
+  border-radius: 12px; /* Slightly less thick */
+  background-color: #f9f9f9;
+  margin: 5px;
+  display: inline-block; /* To wrap around the text */
+}
+
+.heading {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.description {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.option {
+  margin-bottom: 15px;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  background-color: #f9f9f9;
+  padding: 5px; /* Decreased padding */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.toggle-checkbox {
+  display: none;
+}
+
+.toggle-slider {
+  width: 50px;
+  height: 25px;
+  background-color: #d3d3d3;
+  border-radius: 25px;
+  margin-left: 10px;
+  position: relative;
+}
+
+.toggle-checkbox:checked + .toggle-slider {
+  background-color: #27ae60;
+}
+
+.toggle-slider:before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  top: 2.5px;
+  left: 2.5px;
+  transition: 0.3s;
+}
+
+.toggle-checkbox:checked + .toggle-slider:before {
+  transform: translateX(25px);
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Study Blocker Options</title>
+  <link rel="stylesheet" type="text/css" href="options.css">
+  <script src="options.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1 class="circular-rectangle">Study Blocker Options</h1>
+    <div class="block-options">
+      <label>
+        <input type="checkbox" id="blockYouTube">
+        <span class="checkbox-label circular-rectangle">Block YouTube</span>
+      </label>
+    </div>
+    <div class="whitelist-options">
+      <h2 class="circular-rectangle">Whitelist</h2>
+      <p class="circular-rectangle">Enter URLs to whitelist (comma-separated):</p>
+      <input type="text" id="whitelistInput" class="circular-rectangle" placeholder="Enter URLs separated by commas">
+        <button id="saveWhitelist" class="circular-rectangle">Save Whitelist</button>
+      <div class="whitelist-display" id="whitelistDisplay"></div> <!-- Add this line -->
+      <div class="success-message" id="successMessage"></div> <!-- Add this line -->
+
+    </div>
+  </div>
+</body>
+</html>
