@@ -1,4 +1,4 @@
-# Study Blocker Chrome Extension
+# Study Sentry: Study Blocker Chrome Extension
 
 **Study Blocker** is a Chrome extension that helps you stay focused by blocking distracting websites, like YouTube, while you're studying. It provides features like toggling study mode, whitelisting sites, and displaying usage statistics.
 
